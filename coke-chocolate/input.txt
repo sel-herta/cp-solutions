@@ -1,6 +1,6 @@
 4
-jamie wants Coke
-john hates Coke
 mary wants same as john
 barry wants different from mary
+jamie wants Coke
+john hates Coke
 0
