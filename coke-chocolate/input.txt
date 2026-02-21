@@ -1,0 +1,6 @@
+4
+jamie wants Coke
+john hates Coke
+mary wants same as john
+barry wants different from mary
+0
