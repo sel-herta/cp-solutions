@@ -1,4 +1,4 @@
-# Mirroed Pairs
+# Mirrored Pairs
 
 **[Problem Link](https://dmoj.ca/problem/a2)**
 
