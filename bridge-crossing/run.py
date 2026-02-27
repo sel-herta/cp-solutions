@@ -19,40 +19,37 @@ def solve():
     # so its like a for loop, from i up to i + M
     # dp lol
     
-    leaving = []
-    
     memo = {}
     def dfs(i):
-        nonlocal leaving
         if i >= len(people):
             return 0
         if i in memo:
-            return memo[i]
+            return memo[i][0]
         # make the singular person leave (always valid)
         initial_leave = times[i] + dfs(i + 1)
-        p1 = people[i]
         # make groups up to M leave from i
         group_leave = float('inf')
-        j = i
+        j = i + 1
         max_leaver = times[i]
         for k in range(1, M):
             if i + k < len(people):
                 max_leaver = max(max_leaver, times[i + k])
                 new = max_leaver + dfs(i + k + 1)
-                if new <= group_leave:
+                if new <= group_leave and new <= initial_leave:
                     group_leave = new
                     j = i + k + 1
             else:
                 break
-        if initial_leave < group_leave:
-            leaving.append(p1)
-        else:
-            leaving.extend([people[i:j]])
         res = min(group_leave, initial_leave)
-        memo[i] = res
+        memo[i] = (res, j)
         return res
-    print(dfs(0))
-    print(leaving)
+    print(f'Total Time: {dfs(0)}')
+    curr_i = 0
+    while curr_i < len(people):
+        print_this = people[curr_i : memo[curr_i][1]]
+        print(" ".join(print_this))
+        curr_i = memo[curr_i][1]
+            
                 
         
 
